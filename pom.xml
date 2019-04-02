@@ -1,27 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<!-- 继承Spring Boot的父项目，可以利用Spring Boot的依赖管理功能，减少后面的配置两 -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+
+	<!-- 当前项目的信息 -->
+	<!-- 分组的ID，通常是公司的域名倒写 -->
 	<groupId>org.fuck</groupId>
+	<!-- 项目名称 -->
 	<artifactId>weixin</artifactId>
+	<!-- 项目版本号 -->
 	<version>0.0.1-SNAPSHOT</version>
+	<!-- 项目显示名称，但是Eclipse中无效 -->
 	<name>微信项目</name>
+	<!-- 项目描述 -->
 	<description>666</description>
-	
+
+	<!-- 项目的属性配置 -->
 	<properties>
+		<!-- 指定JDK的版本，可选的是1.8、9、10、11 -->
+		<!-- 只有在Spring Boot中，才能直接使用java.version，因为Spring Boot在父项目里面进行简化 -->
 		<java.version>11</java.version>
+		<!-- 源代码的字符编码，由于大家的开发环境都是Windows，默认GBK，而服务器默认UTF-8 -->
+		<!-- 所以必须设置字符编码，否则乱码！ -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- 生成的报告文件的字符编码 -->
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
-<dependencies>
+	<dependencies>
+
+<!-- JAXB的API，一般引入Spring、JPA相关的依赖以后，往往都会有 -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+		<!-- JAXB的核心库 -->
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>2.3.0.1</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- JAXB的实现库 -->
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.2</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- 使用Jackson来转换XML和Java对象，企业使用较多，因为它跟Spring生态结合非常紧密 -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
 		<!-- 用于访问关系数据库，不需要写SQL语句、不要自己创建数据库表、能够自动根据接口的方法名称生成查询语句 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,10 +101,11 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-</dependencies>
+	</dependencies>
 
 	<build>
 		<plugins>
+			<!-- Spring Boot提供的打包插件，能够在把项目打包的时候，自动把依赖的jar文件一并打包 -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
