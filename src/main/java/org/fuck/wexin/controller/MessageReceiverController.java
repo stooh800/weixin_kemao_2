@@ -60,6 +60,7 @@ public class MessageReceiverController {
 		// 收到消息
 		// {}是占位符，第一个{}会把第二个参数的值自动填入
 		// LOG.trace必须要求日志记录器的配置为trace级别才能输出
+		System.out.println(xml);
 		LOG.trace("收到的消息原文：\n{}\n------------------------------", xml);
 		// 转换消息
 
