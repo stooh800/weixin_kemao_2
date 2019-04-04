@@ -34,22 +34,22 @@ public class MessageReceiverController {
 	// 注意：控制器里面必须要有处理器方法（Handler Method）才能执行操作，才不会404
 	// 处理GET请求，HTTP协议支持GET、POST、PUT、DELETE等请求方式，都有对应的注解
 	@GetMapping
-	public String echo(//
-			@RequestParam("signature") String signature, //
-			@RequestParam("timestamp") String timestamp, //
-			@RequestParam("nonce") String nonce, //
-			@RequestParam("echostr") String echostr//
-	//
+	public String echo(
+			@RequestParam("signature") String signature, 
+			@RequestParam("timestamp") String timestamp, 
+			@RequestParam("nonce") String nonce, 
+			@RequestParam("echostr") String echostr
+	
 	) {
 		return echostr;
 	}
 
 	@PostMapping
 	// @RequestBody注解表示把请求内容获取出来，并且转换为String传入给xml参数。
-	public String onMessage(//
-			@RequestParam("signature") String signature, //
-			@RequestParam("timestamp") String timestamp, //
-			@RequestParam("nonce") String nonce, //
+	public String onMessage(
+			@RequestParam("signature") String signature, 
+			@RequestParam("timestamp") String timestamp, 
+			@RequestParam("nonce") String nonce, 
 			@RequestBody String xml) throws JsonParseException, JsonMappingException, IOException {
 		// 收到消息
 		// {}是占位符，第一个{}会把第二个参数的值自动填入
