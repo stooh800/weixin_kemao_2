@@ -15,7 +15,6 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 @SpringBootApplication
 public class WeixinApplication {
 
-	// @Bean注解相当于在XML文件中写<bean>元素
 	@Bean
 	public XmlMapper xmlMapper() {
 		XmlMapper mapper = new XmlMapper();
@@ -25,10 +24,9 @@ public class WeixinApplication {
 	@Bean
 	public RedisTemplate<String, ? extends InMessage> inMessageTemplate(//
 			@Autowired RedisConnectionFactory connectionFactory) {
-
 		RedisTemplate<String, ? extends InMessage> template = new RedisTemplate<>();
 		template.setConnectionFactory(connectionFactory);
-		// 使用序列化程序完成对象的序列化和反序列化，可以自定义
+		
 		template.setValueSerializer(new JsonRedisSerializer<InMessage>());
 
 		return template;
