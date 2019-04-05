@@ -1,8 +1,8 @@
-package org.fuck.wexin.controller;
+package org.fuck.weixin.controller;
 
 import java.io.IOException;
 
-import org.fuck.wexin.domain.InMessage;
+import org.fuck.weixin.domain.InMessage;
 import org.fuck.wexin.service.MessageConvertHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-
+@RestController
 @RequestMapping("/peizhe/message/receiver")
 public class MessageReceiverController {
 

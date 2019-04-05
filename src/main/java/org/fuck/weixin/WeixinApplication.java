@@ -1,7 +1,7 @@
 package org.fuck.weixin;
 
 
-import org.fuck.wexin.domain.InMessage;
+import org.fuck.weixin.domain.InMessage;
 import org.fuck.wexin.service.JsonRedisSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

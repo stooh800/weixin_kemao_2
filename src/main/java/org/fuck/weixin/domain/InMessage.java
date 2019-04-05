@@ -1,4 +1,4 @@
-package org.fuck.wexin.domain;
+package org.fuck.weixin.domain;
 
 import java.io.Serializable;
 

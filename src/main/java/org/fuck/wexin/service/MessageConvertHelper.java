@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.xml.bind.JAXB;
 
-import org.fuck.wexin.domain.InMessage;
+import org.fuck.weixin.domain.InMessage;
 import org.fuck.wexin.domain.image.ImageInMessage;
 import org.fuck.wexin.domain.text.TextInMessage;
 

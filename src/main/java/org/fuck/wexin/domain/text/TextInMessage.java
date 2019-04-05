@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.fuck.wexin.domain.InMessage;
+import org.fuck.weixin.domain.InMessage;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
